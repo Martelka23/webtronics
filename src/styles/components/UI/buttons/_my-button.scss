@@ -1,0 +1,29 @@
+@use '../../../abstracts/variables' as var;
+
+.my-button {
+  font-size: 20px;
+  color: var.$phthalo-blue;
+  padding: 24px 32px;
+  background-image: var.$aqua-grad;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    color: var.$iris;
+  }
+
+  &:active {
+    color: var.$white;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+
+    &:hover,
+    &:active {
+      color: var.$phthalo-blue;
+    }
+  }
+}

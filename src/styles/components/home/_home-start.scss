@@ -1,0 +1,97 @@
+@use '../../abstracts/variables' as var;
+
+.home-start {
+  .start-title {
+    color: var.$white;
+    grid-template-columns: 20% 25% 20%;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-areas: 
+      "title1 title1 info"
+      "button title2 title2"
+      "void void courses-word"
+    ;
+    justify-content: center;
+  
+    .title1 {
+      grid-area: title1;
+      white-space: nowrap;
+
+      opacity: 1;
+      transition: all 1s;
+      transition-delay: 0.3s;
+
+      &.hidden {
+        transform: translateX(-200px);
+        opacity: 0;
+      }
+    }
+  
+    .info {
+      grid-area: info;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: justify;
+      word-spacing: -2px;
+    }
+  
+    .start-button {
+      grid-area: button;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    .title2 {
+      grid-area: title2;
+
+      opacity: 1;
+      transition: all 1s;
+      transition-delay: 0.3s;
+
+      &.hidden {
+        transform: translateX(200px);
+        opacity: 0;
+      }
+    }
+  
+    .courses-word {
+      grid-area: courses-word;
+      display: flex;
+      justify-content: end;
+    }
+  }
+}
+
+@media (1250px < width < 1600px) {
+  .home-start {
+    .start-title {
+      grid-template-columns: 25% 25% 25%;
+    }
+  }
+}
+
+@media (width < 1251px) {
+  .home-start {
+    .start-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .info {
+        width: 70%;
+      }
+    }
+  }
+}
+
+@media (width < 751px) {
+  .home-start {
+    .start-title {
+      h1 {
+        font-size: 75px;
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@use '../../abstracts/variables' as var;
+
+.navbar {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1000;
+
+  height: 3em;
+  width: 100%;
+  padding: 1em;
+
+  &__logo {
+    margin-left: 16em;
+  }
+
+  &__links {
+    text-decoration: none;
+    display: flex;
+    margin-right: 16em;
+
+    li {
+      display: flex;
+      margin-left: 1em;
+
+      a {
+        color: var.$white;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (width < 1600px) {
+  .navbar {
+    &__logo {
+      margin-left: 1em;
+    }
+
+    &__links {
+      margin-right: 1em;
+    }
+  }
+}

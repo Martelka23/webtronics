@@ -1,0 +1,41 @@
+@use '../abstracts/variables' as var;
+
+.app {
+  background-color: var.$black;
+
+  height: 100vh;
+  perspective: 10px;
+  overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .home-start {
+    padding-top: 14%;
+  }
+
+  &>div {
+    margin-bottom: 10em;
+  }
+}
+
+@media (500px < width < 730px) {
+  .app>div {
+    transform: scale(0.7);
+  }
+
+  .app .home-decoration {
+    transform: scale(1);
+  }
+}
+
+@media (width < 501px) {
+  .app>div {
+    transform: scale(0.5);
+  }
+
+  .app .home-decoration {
+    transform: scale(1);
+  }
+}

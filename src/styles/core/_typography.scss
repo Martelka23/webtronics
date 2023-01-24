@@ -1,0 +1,23 @@
+@use '../abstracts/variables' as var;
+@import url('https://fonts.cdnfonts.com/css/clash-display');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+
+body {
+  font-size: var.$p1-font-size;
+}
+
+h1 {
+  font-size: 150px;
+}
+
+h2 {
+  font-size: 72px;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+h4 {
+  font-size: 24px;
+}

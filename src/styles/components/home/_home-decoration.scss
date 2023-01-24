@@ -1,0 +1,28 @@
+@use 'sass:math';
+
+.home-decoration {
+  position: absolute;
+  transform-style: preserve-3d;
+  z-index: -1;
+
+  @for $i from 1 to 15 {
+    .blured-ellipse:nth-child(#{$i}) {
+      transform: translate3d(math.random(2000) - 1000 + px, math.random(7000) + px, math.random(19) - 19 + px) 
+        rotate(math.random(360) + deg) scale(math.random(15) / 10);
+      ;
+    }
+  }
+}
+
+.home-stars {
+  position: absolute;
+  transform-style: preserve-3d;
+  z-index: -1;
+
+  @for $i from 1 to 50 {
+    img:nth-child(#{$i}) {
+      transform: translate3d(math.random(3000) - 1500 + px, math.random(7000) + px, math.random(19) - 19 + px) 
+        rotate(math.random(360) + deg) scale(math.random(20) / 10);
+    }
+  }
+}

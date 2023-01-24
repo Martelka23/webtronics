@@ -1,0 +1,43 @@
+@use '../../abstracts/variables' as var;
+@use '../../abstracts/placeholders';
+
+.home-questions {
+  color: var.$white;
+  @extend %center-column;
+
+  h2 {
+    width: 80%;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+
+    width: 90%;
+
+    .content__left {
+      @extend %center-column;
+      // justify-content: space-between;
+
+      h1 {
+        font-size: 550px;
+        color: var.$black;
+        background: var.$purple-blue-grad;
+        background-size: 200% 200%;
+        background-clip: text;
+        -webkit-text-stroke: 8px transparent;
+
+      }
+    }
+  }
+}
+
+@media (width < 750px) {
+  .home-questions {
+    &__content {
+      transform: scale(80%);
+    }
+  }
+}

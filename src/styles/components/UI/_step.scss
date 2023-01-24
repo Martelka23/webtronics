@@ -1,0 +1,106 @@
+@use '../../abstracts/variables' as var;
+@use '../../abstracts/mixins';
+@use '../../abstracts/placeholders';
+
+.step {
+  color: var.$white;
+  width: 470px;
+  height: 190px;
+
+  transition: all 0.5s;
+
+  @extend %center-column;
+  justify-content: center;
+
+  .content-grad {
+    width: 470px;
+    height: 190px;
+
+    transition: all 0.5s;
+
+    @include mixins.gradient-border(16px);
+
+    .bg {
+      background-color: var.$black;
+      width: 468px;
+      height: 188px;
+      border-radius: 16px;
+  
+      .content {
+        background-color: var.$black-opacity;
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+        padding: 1em;
+        overflow: scroll;
+  
+        h3,
+        h4 {
+          margin-bottom: 0.5em;
+        }
+      }
+    }
+  }
+}
+
+.step {
+  .grad {
+    position: absolute;
+
+    width: 150px;
+    height: 215px;
+
+    z-index: -20;
+
+    @include mixins.gradient-border(16px, $color: var.$purple-blue-zero-grad);
+
+    &__bg {
+      background-color: var.$black;
+      border-radius: 12px;
+
+      transform: translateX(-5px);
+
+      width: 150px;
+      height: 205px;
+
+      display: flex;
+      align-items: center;
+
+      img {
+        position: absolute;
+        transform: translateX(170px);
+      }
+
+      .dot {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: var.$iris;
+        transform: translateX(240px);
+      }
+    }
+  }
+}
+
+.step.right {
+  .grad {
+    transform: translateX(175px);
+  }
+
+  &.hidden .content-grad {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+}
+
+.step.left {
+  .grad {
+    transform: translateX(-175px) rotateZ(180deg);
+  }
+
+  &.hidden .content-grad {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+}

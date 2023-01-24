@@ -1,0 +1,73 @@
+@use '../../../abstracts/variables' as var;
+@use '../../../abstracts/mixins';
+
+$height-question-close: 4em;
+$height-question-open: 14em;
+$width-question: 30em;
+$border-question: 2px;
+$cut-dist-question: 2em;
+
+.question-dropdown {
+  color: var.$white;
+  margin: 1em 0;
+
+  transition: all 0.4s;
+
+  @include mixins.gradient-border(16px);
+  @include mixins.cut-angle($height-question-close, $width-question,
+    $cut-dist-question, $border-radius: 16px, $top-left: true, $bottom-right: true);
+
+  .bg,
+  .content {
+    transition: all 0.4s;
+    @include mixins.cut-angle(calc(#{$height-question-close} - #{$border-question}),
+      calc(#{$width-question} - #{$border-question}),
+      $cut-dist-question, $border-radius: 16px, $top-left: true, $bottom-right: true);
+  }
+
+  .bg {
+    background-color: var.$black;
+  }
+
+  .content {
+    background-color: var.$black-opacity;
+    padding: 1em 2em;
+
+    &__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    p {
+      opacity: 0;
+      overflow: hidden;
+      // transition: all 0.1s;
+    }
+  }
+
+  &.open {
+    @include mixins.cut-angle($height-question-open, $width-question,
+      $cut-dist-question, $border-radius: 16px, $top-left: true, $bottom-right: true);
+
+    .bg,
+    .content {
+      @include mixins.cut-angle(calc(#{$height-question-open} - #{$border-question}),
+        calc(#{$width-question} - #{$border-question}),
+        $cut-dist-question, $border-radius: 16px, $top-left: true, $bottom-right: true);
+    }
+
+    .content {
+      &__top {
+        margin-bottom: 1.5em;
+      }
+
+      p {
+        opacity: 1;
+        max-height: 30em;
+      }
+
+      overflow: scroll;
+    }
+  }
+}

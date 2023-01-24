@@ -1,0 +1,68 @@
+@use '../../abstracts/variables' as var;
+@use '../../abstracts/mixins';
+@use '../../abstracts/placeholders';
+
+$height-form: 600px;
+$width-form: 70%;
+$border-form: 1px;
+
+.contact-form {
+  margin: 0 20%;
+  color: var.$white;
+  height: $height-form;
+  width: $width-form;
+
+  @include mixins.gradient-border(20px);
+
+  .bg {
+    background-color: var.$black;
+    width: calc(100% - #{$border-form} * 2);
+    height: calc(100% - #{$border-form} * 2);
+    border-radius: 20px;
+  }
+
+  form {
+    width: 100%;
+    height: 100%;
+    padding: 5% 30%;
+
+    background-color: var.$black-opacity;
+    border-radius: 20px;
+
+    @extend %center-column;
+    justify-content: space-between;
+
+    h2 {
+      margin-bottom: 0.2em;
+    }
+
+    p {
+      margin-bottom: 1em;
+    }
+
+    input,
+    button {
+      width: 100%;
+    }
+
+    input {
+      margin-bottom: 1em;
+    }
+
+    input.error {
+      margin-bottom: 0.2em;
+    }
+
+    .my-input-error-message {
+      margin-bottom: 0.8em;
+    }
+  }
+}
+
+@media (width < 1200px) {
+  .contact-form {
+    form {
+      padding: 5% 10%;
+    }
+  }
+}

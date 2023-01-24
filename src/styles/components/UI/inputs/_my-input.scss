@@ -1,0 +1,47 @@
+@use '../../../abstracts/variables' as var;
+
+.my-input {
+  padding: 24px;
+  font-size: var.$p1-font-size;
+  color: var.$baby-blue;
+
+  box-sizing: border-box;
+  outline: none;
+
+  border-radius: 8px;
+  border: double 1px transparent;
+
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  background-image: linear-gradient(var.$black, var.$black), var.$purple-blue-grad-border;
+
+  transition: all 0.2s;
+
+  &::placeholder {
+    color: var.$baby-blue;
+  }
+
+  &:active {
+    color: var.$white;
+  }
+
+  &.error {
+    color: var.$white;
+    background: rgba(255, 165, 165, 0.2);
+    border: 1px solid var.$tart-orange;
+  }
+
+  &:disabled {
+    color: var.$storm-dust;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var.$storm-dust;
+
+    &::placeholder {
+      color: var.$storm-dust;
+    }
+  }
+}
+
+.my-input-error-message {
+
+}

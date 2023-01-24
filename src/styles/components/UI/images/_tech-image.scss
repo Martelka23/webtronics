@@ -1,0 +1,43 @@
+@use '../../../abstracts/variables' as var;
+@use '../../../abstracts/mixins';
+@use '../../../abstracts/placeholders';
+
+$height-tech-img: 14em;
+$width-tech-img: 12em;
+$border-tech-img: 2px;
+$cut-dist-tech-img: 3em;
+
+.tech-image {
+  color: var.$white;
+
+  @include mixins.gradient-border(16px);
+  @include mixins.cut-angle($height-tech-img, $width-tech-img,
+    $cut-dist-tech-img, $border-radius: 16px, $bottom-right: true);
+
+  @extend %center-column;
+
+  .bg,
+  .content {
+    @include mixins.cut-angle(calc(#{$height-tech-img} - #{$border-tech-img}),
+      calc(#{$width-tech-img} - #{$border-tech-img}),
+      $cut-dist-tech-img, $border-radius: 16px, $bottom-right: true);
+  }
+
+  .bg {
+    background-color: var.$black;
+  }
+
+  .content {
+    background-color: var.$black-opacity;
+
+    padding: 5px;
+
+    @extend %center-column;
+    justify-content: space-around;
+
+    img {
+      object-fit: cover;
+      width: 90%;
+    }
+  }
+}

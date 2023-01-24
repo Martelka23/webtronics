@@ -1,0 +1,46 @@
+@use '../../abstracts/variables' as var;
+
+.home-steps {
+  color: var.$white;
+  margin: 0 20%;
+  z-index: 10;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  .graph {
+    display: flex;
+  }
+
+  .step {
+    margin: 0 110px 199px 110px;
+  }
+
+  .steps-right {
+    margin-top: 115px;
+  }
+
+  .vline {
+    transform: translatey(100px);
+
+    width: 4px;
+    height: 877px;
+    background-image: var.$aqua-grad;
+
+    z-index: -100;
+  }
+}
+
+@media (width < 1201px) {
+  .home-steps {
+    .steps-right {
+      margin-top: 0;
+    }
+
+    .vline {
+      height: 1950px;
+    }
+  }
+}

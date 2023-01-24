@@ -1,0 +1,10 @@
+@use '../../../abstracts/variables' as var;
+
+.blured-ellipse {
+  position: absolute;
+  width: 356px;
+  height: 356px;
+  background-color: var.$blue-ellipse;
+  filter: blur(175px);
+  z-index: 1;
+}

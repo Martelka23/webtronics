@@ -1,0 +1,63 @@
+@use './variables' as var;
+
+@mixin cut-angle($height, $width, $cut-dist, $border-radius: 0px,
+  $top-left: false, $top-right: false, $bottom-right: false, $bottom-left: false) {
+    
+  height: $height;
+  width: $width;
+  border-radius: $border-radius;
+
+  $tl1: 0%;
+  $tl2: 0%;
+  $tr1: 100%;
+  $tr2: 0%;
+  $br1: 100%;
+  $br2: 100%;
+  $bl1: 0%;
+  $bl2: 100%;
+
+  @if $top-left {
+    $tl1: $cut-dist;
+    $tl2: $cut-dist;
+  }
+
+  @if $top-right {
+    $tr1: calc(#{$width} - #{$cut-dist});
+    $tr2: $cut-dist;
+  }
+
+  @if $bottom-right {
+    $br1: calc(#{$height} - #{$cut-dist});
+    $br2: calc(#{$width} - #{$cut-dist});
+  }
+
+  @if $bottom-left {
+    $bl1: $cut-dist;
+    $bl2: calc(#{$height} - #{$cut-dist});
+  }
+
+  clip-path: polygon($tl1 0%,
+
+    $tr1 0%,
+    100% $tr2,
+
+    100% $br1,
+    $br2 100%,
+
+    $bl1 100%,
+    0% $bl2,
+
+    0% $tl2,
+  );
+}
+
+@mixin gradient-border($border-radius, $color: var.$purple-blue-grad-border) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-image: $color;
+
+  border-radius: $border-radius;
+}

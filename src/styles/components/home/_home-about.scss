@@ -1,0 +1,85 @@
+@use '../../abstracts/variables' as var;
+@use '../../abstracts/placeholders';
+
+.home-about {
+  color: var.$white;
+
+  @extend %center-column;
+
+  h2 {
+    margin-bottom: 1em;
+  }
+
+  .content {
+    display: flex;
+    justify-content: center;
+
+    .mentors {
+      @extend %center-column;
+      
+      .vectors {
+        width: 700px;
+        display: flex;
+        justify-content: center;
+
+        .left {
+          transform: translateX(4px);
+          width: 250px;
+        }
+  
+        .center {
+          // transform: translateY(-45px);
+          height: 200px;
+        }
+  
+        .right {
+          transform: translateX(-4px);
+          width: 250px;
+        }
+      }
+
+      &__images {
+        display: flex;
+        justify-content: space-between;
+
+        width: 700px;
+
+        .mentor-image:nth-child(2) {
+          transform: translateY(-60px);
+        }
+      }
+
+      margin-right: 3em;
+    }
+
+    .about-info {
+      width: 25%;
+    }
+  }
+}
+
+@media (width < 1100px) {
+  .home-about {
+    .content {
+      flex-direction: column;
+      align-items: center;
+
+      .mentors {
+        margin-bottom: 2em;
+        margin-right: 0;
+      }
+
+      .about-info {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media (width < 800px) {
+  .home-about {
+    .mentors {
+      transform: scale(80%);
+    }
+  }
+}

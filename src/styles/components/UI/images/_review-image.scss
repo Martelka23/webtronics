@@ -1,0 +1,32 @@
+@use '../../../abstracts/variables' as var;
+@use '../../../abstracts/mixins';
+
+$height-review-img: 20em;
+$width-review-img: 20em;
+$border-review-img: 5px;
+$cut-dist-review-img: 2em;
+
+.review-image {
+  @include mixins.gradient-border(20px);
+  @include mixins.cut-angle($height-review-img, $width-review-img / 2,
+    $cut-dist-review-img, $border-radius: 20px, $top-left: true, $bottom-right: true);
+
+  img {
+    object-fit: cover;
+
+    @include mixins.cut-angle(calc(#{$height-review-img} - #{$border-review-img}),
+      calc(#{$width-review-img} / 2 - #{$border-review-img}),
+      $cut-dist-review-img, $border-radius: 20px, $top-left: true, $bottom-right: true);
+  }
+
+  &.widen {
+    @include mixins.cut-angle($height-review-img, $width-review-img,
+      $cut-dist-review-img, $border-radius: 20px, $top-left: true, $bottom-right: true);
+
+    img {
+      @include mixins.cut-angle(calc(#{$height-review-img} - #{$border-review-img}),
+        calc(#{$width-review-img} - #{$border-review-img}),
+        $cut-dist-review-img, $border-radius: 20px, $top-left: true, $bottom-right: true);
+    }
+  }
+}
