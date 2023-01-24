@@ -13,6 +13,7 @@ export default function HomeSteps({ screenWidth }: HomeStepsProps) {
     leftSteps = steps.map((step, i) =>
       (i + 1) % 2 === 1
         ? <Step
+          key={i}
           step={step.step}
           title={step.title}
           text={step.text}
@@ -23,6 +24,7 @@ export default function HomeSteps({ screenWidth }: HomeStepsProps) {
     rightSteps = steps.map((step, i) =>
       (i + 1) % 2 === 0
         ? <Step
+          key={i}
           step={step.step}
           title={step.title}
           text={step.text}
@@ -33,6 +35,7 @@ export default function HomeSteps({ screenWidth }: HomeStepsProps) {
   } else {
     rightSteps = steps.map((step, i) =>
       <Step
+        key={i}
         step={step.step}
         title={step.title}
         text={step.text}
@@ -43,7 +46,7 @@ export default function HomeSteps({ screenWidth }: HomeStepsProps) {
 
   return (
     <div className="home-steps">
-      <h2>Steps {screenWidth}</h2>
+      <h2>Steps</h2>
       <div className="graph">
         <div className="steps-left">
           {leftSteps}

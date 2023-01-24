@@ -25,6 +25,7 @@ export default function HomeQuestions() {
             {
               questions.map((question, i) => (
                 <QuestionDropdown
+                  key={i}
                   title={question.title}
                   text={question.text}
                   isOpen={opened[i]}

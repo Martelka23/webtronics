@@ -7,7 +7,7 @@ import MyInput from "../UI/inputs/MyInput";
 export default function ContactForm() {
   const sendData = async (data: FieldValues) => {
     console.log(data);
-    await axios.post('http://localhost:3000/api/users', data);
+    await axios.post('https://martelka23.ru/webtronics/api/users', data);
   }
 
   const {
