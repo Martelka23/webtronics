@@ -1,6 +1,6 @@
 import { useInView } from 'react-intersection-observer';
 
-import line from '../../assets/vectors/line.svg';
+import line from '../../assets/vectors/Line.svg';
 
 interface StepProps {
   step: number,
