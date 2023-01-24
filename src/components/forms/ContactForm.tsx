@@ -1,13 +1,17 @@
 import axios from "axios";
+import { useRouter } from "next/router";
 import { FieldValues, useForm } from "react-hook-form";
 
 import MyButton from "../UI/buttons/MyButton";
 import MyInput from "../UI/inputs/MyInput";
 
 export default function ContactForm() {
+  const router = useRouter();
+
   const sendData = async (data: FieldValues) => {
     console.log(data);
-    await axios.post('https://martelka23.ru/webtronics/api/users', data);
+    await axios.post('https://martelka23.ru/api/users', data);
+    router.push('/feedback');
   }
 
   const {
